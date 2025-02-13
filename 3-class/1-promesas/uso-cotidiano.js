@@ -7,19 +7,18 @@ axios.get('https://randomuser.me/api/')
     .then(response => {console.log(response.data)})
     .catch(error =>{console.error(error);})
 
-response = {
-    data: {
-        message: "not foud"
-    },
-    status: {
-        value:"error",
-        code: 404
-    },
-    headers: 'json'
-}
 
-response = "error"
-
-function suma(a,b) {
-    return a+b
-}
+// promesa poco cotidiana pero es un ejemplo de uso
+let conciliacion = new Promise((resolve, reject) => {
+    
+    let ids = getUsuarios()
+    let data = calculoIntereses(ids)
+    let totales= deudaByUserId(ids)
+    let response = calculoDeConciliacion(data, totales)
+    
+    if (response) {
+            resolve(response); // Estado de tarea resuelta
+    } else {
+            reject(error) // Estado de tarea erronea
+    }
+})
