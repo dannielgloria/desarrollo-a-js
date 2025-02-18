@@ -1,0 +1,27 @@
+html, body {
+    height: 100%; /* Asegura que el html y el body ocupen toda la altura de la pantalla */
+    margin: 0; /* Elimina cualquier margen predeterminado */
+    padding: 0; /* Elimina cualquier relleno predeterminado */
+}
+
+body {
+    /* Establece un degradado que va de un color negro más claro a un color negro más oscuro */
+    background: linear-gradient(to bottom, #333333, #000000);
+
+    /* Color de texto */
+    color: white;
+
+    /* Asegura que todo el texto que no tenga un color específico asignado sea blanco */
+    * {
+        color: inherit;
+    }
+
+    /* Asegura que el body sea tan ancho como la ventana del navegador */
+    width: 100vw;
+
+    /* Asegura que el body sea tan alto como la ventana del navegador */
+    min-height: 100vh;
+
+    /* Elimina el scroll vertical si no es necesario */
+    overflow-x: hidden;
+}
