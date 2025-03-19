@@ -23,28 +23,56 @@ function tercero() {
 como esperar que un tiempo se cumpla o que lleguen datos de Internet.
 Esto se hace al margen para no detener otras tareas. */
 
-console.log("Iniciar el procesamiento de mi JS")
+//console.log("Iniciar el procesamiento de mi JS")
 
-setTimeout(()=>{
+/*setTimeout(()=>{
     console.log("Lamando un recurso externo detras de babalinas (webAPI)")
 },10000)
 
-console.log("Viva méxico")
+console.log("Viva méxico")?*
 
 // Callback Queue
 /* Una vez que los ayudantes han terminado, las tareas que necesitan seguir se alinean aquí,
  esperando que el Call Stack esté libre para continuar. */
 
-/*
 setTimeout(()=>{
-    console.log("Callback de SetTimeout")
-},0)
+    console.log("Tarea 3 de Fulano")
+},3000)
 setTimeout(()=>{
-    console.log("Callback de SetTimeout 2")
-},0)
+    console.log("Tarea 2 de Daniel")
+},3000)
+setTimeout(()=>{
+    console.log("Tarea 3 de Daniel")
+},3000)
+setTimeout(()=>{
+    console.log("Tarea 2 de Fulano")
+},3000)
 
-console.log('Mensaje de call stack')
-*/
+
+
+console.log('Tarea 1 de Cola Fulano')
+console.log('Tarea 1 de Cola Daniel')
+
+function f1() {
+    console.log('Tarea 1 de Cola Fulano')
+    f2()
+}
+
+function f2() {
+    setTimeout(()=>{
+        console.log("Tarea 2 de Fulano")
+    },2100)
+    f3()
+}
+
+function f3() {
+    setTimeout(()=>{
+        console.log("Tarea 3 de Fulano")
+    },4100)
+}
+// ejecuto mi Callback Queue de Fulano
+//f1()
+
 
 //Microtask Queue
 
