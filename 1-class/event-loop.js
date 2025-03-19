@@ -23,14 +23,13 @@ function tercero() {
 como esperar que un tiempo se cumpla o que lleguen datos de Internet.
 Esto se hace al margen para no detener otras tareas. */
 
-/*console.log("Inicia la vida del JS")
+console.log("Iniciar el procesamiento de mi JS")
 
 setTimeout(()=>{
-    console.log("Proceso por Web API (este se hace en el servidor [www.onlifan.com/dannglo])")
+    console.log("Lamando un recurso externo detras de babalinas (webAPI)")
 },10000)
 
-console.log('Fin de vida JS')*/
-
+console.log("Viva méxico")
 
 // Callback Queue
 /* Una vez que los ayudantes han terminado, las tareas que necesitan seguir se alinean aquí,
@@ -49,7 +48,7 @@ console.log('Mensaje de call stack')
 
 //Microtask Queue
 
-console.log('Inicio');
+/*console.log('Inicio');
 
 tercero()
 
@@ -57,4 +56,4 @@ Promise.resolve().then(() => {
   console.log('Manejado por la Microtask Queue');
 });
 
-console.log('Fin');
+console.log('Fin');*/
