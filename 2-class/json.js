@@ -1,22 +1,26 @@
-
-let carro = {
-    matricula: "911",
-    marca: "BMW",
-    color: "chiclamino",
-    anio: 1990
+let tortilla = {
+    grosor: 10,
+    tipo_maiz: "Maiz Azul",
+    marca: "Mazeca",
+    direccion_plata :{
+        pais: "Mexico",
+        cp: "0100",
+        calle: "Benito juarez"
+    }
 }
 
 // Convertir objeto a texto
-let jsonTexto = JSON.stringify(carro);
-
-//console.log(jsonTexto)
-//console.log(carro)
-
+let jsonTexto = JSON.stringify(tortilla);
+console.log(typeof jsonTexto, ":", jsonTexto);
+console.log(typeof tortilla, ":",tortilla);
 
 // Convertir texto a objeto
-let jsonCarroTexto = '{"matricula":"199","marca":"VOLKSWAGEN","color":"Azul","anio":2025}'
+let sombreroTexto = '{"material":"telas alfonso", "color":"Blanco", "radio":"fm", "tamaño": "M"}'
 
-let json = JSON.parse(jsonCarroTexto)
+let sombreroJSON = JSON.parse(sombreroTexto)
 
-console.log(jsonCarroTexto)
-console.log(json)
+console.log(typeof sombreroTexto, ":", sombreroTexto);
+console.log(typeof sombreroJSON, ":",sombreroJSON);
+
+const colorSombrero = sombreroJSON.color
+console.log("Color: ",colorSombrero)

@@ -1,0 +1,10 @@
+{
+    "grosor": 10,
+    "tipo_maiz": "Maiz Azul",
+    "marca": "Mazeca",
+    "direccion_plata" :{
+        "pais": "Mexico",
+        "cp": "0100",
+        "calle": "Benito juarez"
+    }
+}
