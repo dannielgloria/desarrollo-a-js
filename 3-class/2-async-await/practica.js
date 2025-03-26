@@ -1,18 +1,31 @@
-async function calcularDeuda(idUsuario) {
-    // contiene promesas/ trabaja con respuestas de promesas 
-    try { // va a correr el codigo siempre y cuando non tenga error
-        const response = await fetch(`https://santander.com/api/dataUser={idUsuario}`) // con await ESPERO a que el llamado a promesa responda
-        const data = await response.json();
-        const deuda = data.impuestos + data.prestamoValue + data.comision
-        console.log("Tu deuda es de :", deuda)
-    } catch (error) { // cacha cualquier error de nuestras promesas invocadas
-        console.log('Error al obtener deuda: ', error)
-    }
+async function calcularEstadoCuenta(idUsuario) {
+    // Contendra promesas por lo tanto trabajara con respuestas de promesas
+    try { // va a correr el codigo siempre y cuando no tenga error
+        const dataUser = await fetch(`https://santander.com/api/dataUser=${idUsuario}`) // con await ESPERO a que el llamado a promesa responda
+        const data = await dataUser.json() // con await ESPERO a que el llamado a promesa responda
+        const impuestos = await calculoImpuestos
+        const edoAcount = data.ingresos + data.egresos + data.intereses + impuestos
+        return edoAcount
 
-    // hacer otra tarea
+    } catch (error) {  // cacha cualquier error de nuestras promesas invocadas
+        console.log('Error al obtener deuda: ', error)
+        return null
+    }
     
 }
 
 
-calcularDeuda('124123')
+let calculoImpuestos = new Promise((resolve, reject) => {
+    
+    let ids = getCompras()
+    let data = getIVA(ids.valor)
+    let deuda = ids.interes_moratorio
+    let response = calculoDeImpuestos(data,deuda)
 
+    if (response){
+        resolve(response)
+    } else {
+        reject("No se puede calcular los impuestos")
+    }
+
+})

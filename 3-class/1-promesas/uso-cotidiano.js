@@ -1,24 +1,26 @@
-fetch('https://api.ejemplo.com/algo')
-    .then( response => response.json())// Transforma la respuesta en JSON   
-    .then(data => console.log(data))
-    .catch(error => console.error(error))
 
-axios.get('https://randomuser.me/api/')
-    .then(response => {console.log(response.data)})
-    .catch(error =>{console.error(error);})
+//? USO COTIDIANO DE CONSUMO DE PROMESA
 
+axios.get('https://randomiiiiuser.me/api/')
+    .then( response => {
+        console.log(response.data);
+    })
+    .catch( error => {
+        console.error(error);
+    })
 
 // promesa poco cotidiana pero es un ejemplo de uso
-let conciliacion = new Promise((resolve, reject) => {
+let calculoImpuestos = new Promise((resolve, reject) => {
     
-    let ids = getUsuarios()
-    let data = calculoIntereses(ids)
-    let totales= deudaByUserId(ids)
-    let response = calculoDeConciliacion(data, totales)
-    
-    if (response) {
-            resolve(response); // Estado de tarea resuelta
+    let ids = getCompras()
+    let data = getIVA(ids.valor)
+    let deuda = ids.interes_moratorio
+    let response = calculoDeImpuestos(data,deuda)
+
+    if (response){
+        resolve(response)
     } else {
-            reject(error) // Estado de tarea erronea
+        reject("No se puede calcular los impuestos")
     }
+
 })
