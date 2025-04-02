@@ -1,16 +1,34 @@
 async function getCharacter() {
     const characterId = document.getElementById('characterId').value;
 
-    if(!characterId) return;
+    if(!characterId){
+        alert('Por favor, ingresa un ID de personaje.')
+        return;
+    }
 
+    if (!/^\d+$/.test(characterId)) {
+        alert('El ID debe ser un número válido.')
+        return;
+    }
     try {
         const response = await axios.get(`https://rickandmortyapi.com/api/character/${characterId}`);
+        if (!response.data || Object.keys(response.data).length === 0 ) {
+            console.error('No se encontraron datos para el personaje con ID: ', characterId)
+            alert('No se encontró el personaje. Verifica que el ID exista e intenta de nuevo.')
+            return
+        }
         const character = response.data
         console.log(character)
         displayCharacter(character)
     } catch (error) {
-        console.error('Error al traer personaje: ', error)
-        alert('Hubo un error al traer el personaje, porfavor consulta tu consola para mas INFO')
+
+        if (error.response && error.response.status === 404) {
+            alert('No se encontró el personaje. Verifica que el ID exista e intenta de nuevo.')
+        } else {
+            alert('Hubo un error al traer el personaje, porfavor consulta a tu administrador')
+
+        }
+
     }
 }
 
