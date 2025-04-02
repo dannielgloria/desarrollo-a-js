@@ -43,3 +43,5 @@ function refreshPage() {
     document.getElementById('characterCard').style.display = 'none'
     document.getElementById('characterId').value = ''
 }
+
+// agergar funcion asincrona para el getAllcharacters() consultando el endpoint https://rickandmortyapi.com/api/character
