@@ -45,3 +45,22 @@ function refreshPage() {
 }
 
 // agergar funcion asincrona para el getAllcharacters() consultando el endpoint https://rickandmortyapi.com/api/character
+// tomando como ejemplo a :
+/*
+function loadAllPost() {
+    axios.get("https://jsonplaceholder.typicode.com/posts")
+        .then(res => {
+            const commentsContainer = document.getElementById('commentsContainer');
+            commentsContainer.innerHTML = res.data.map( comment => `
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title">${comment.title}</h4>
+                            <p class="card-text">${comment.body}</p>
+                        </div>
+                    </div>
+                `).join('');
+            console.log(res.data);
+        })
+        .catch(error => {console.log('Error: ', error)})
+}
+*/
